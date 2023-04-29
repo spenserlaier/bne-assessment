@@ -4,7 +4,10 @@
     <form method="post" action="{{ route('login.perform') }}">
         
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        
+        <a href = "/">
         <img class="mb-4" src="{!! url('images/bootstrap-logo.png') !!}" alt="" width="72" height="57">
+</a>
         
         <h1 class="h3 mb-3 fw-normal">Login</h1>
 

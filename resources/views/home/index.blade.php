@@ -3,7 +3,7 @@
 @section('content')
     <div class="bg-light p-5 rounded">
         @auth
-        <h1>Welcome, {{Auth::user()->username}}</h1>
+        <h1>Welcome, {{Auth::user()->username}}.</h1>
         <form method="post" action="{{ route('questions.update') }}">
         @csrf
         <div class="form-group form-floating mb-3">
@@ -34,8 +34,10 @@
 
 
         @guest
-        <h1>Homepage</h1>
-        <p class="lead">You're viewing the home page. Please login to view the restricted data.</p>
+        <h1>Welcome, guest.</h1>
+        <p class="lead">You're viewing the welcome page. Sign in or create an account to view and
+            answer the questions.
+        </p>
         @endguest
     </div>
 @endsection
