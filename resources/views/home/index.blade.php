@@ -3,6 +3,7 @@
 @section('content')
     <div class="bg-light p-5 rounded">
         @auth
+        @if (auth()->user()->hasVerifiedEmail())
         <h1>Welcome, {{Auth::user()->username}}.</h1>
         <form method="post" action="{{ route('questions.update') }}">
         @csrf
@@ -30,6 +31,15 @@
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Submit Answers</button>
 </form>
+        @elseif (!auth()->user()->hasVerifiedEmail())
+        <div class="alert alert-warning">
+        You need to verify your email address. Please check your email for a verification link. If you did not receive the email,
+        <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+            @csrf
+            <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+        </form>
+    </div>
+        @endif
         @endauth
 
 

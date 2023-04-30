@@ -18,6 +18,12 @@ return [
         'passwords' => 'users',
     ],
 
+
+    'verification' => [
+        'enabled' => true,
+        'expire' => 60,
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
